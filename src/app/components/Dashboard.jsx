@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ConnectedTaskList} from './ConnectedTaskList';
+import {ConnectedTaskList} from './TaskList';
+
 //import {ConnectedTasks} from './TaskList';
 //has the ability to be passed groups
 // in order to give it groups we must connect it 
@@ -8,7 +9,7 @@ const Dashboard = ({groups})=>(
     <div>
         <h2>Dashboard</h2>
         {groups.map(group=>(
-            <div>
+            <div key={group.id}>
             <h1>{group.name}</h1>
             <ConnectedTaskList id={group.id}/>
             </div>

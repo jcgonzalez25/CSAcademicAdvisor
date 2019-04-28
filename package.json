@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
-    "dev": "webpack-dev-server --open"
+    "dev": "webpack-dev-server --open",
+    "test-connect": "babel-node src/server/connect-db",
+    "initialize":"babel-node src/server/initialize-db"
   },
   "keywords": [],
   "author": "",
@@ -18,14 +20,20 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "mongodb": "^3.1.10",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.7"
   },
   "dependencies": {
+    "history": "^4.7.2",
     "react": "^16.4.2",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.2",
+    "uuid": "^3.3.2"
   }
 }
