@@ -13,7 +13,7 @@ const LoginForm = ({authorizeLogin,session,updateForm})=>(
     <form onSubmit={authorizeLogin}>
         <div className="d-flex justify-content-center">
             <h1 className="display-1 text-center ">
-                CS ADVISING LOGIN
+                CS ADVISING 
             </h1>
         </div>
         {session.registration_status === mutations.REGISTRATION_COMPLETE?
