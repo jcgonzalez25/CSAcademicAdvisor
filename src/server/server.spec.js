@@ -7,5 +7,4 @@ async function test(){
     })
     await updateTask({id:"T3",name:"Changed Name"});
 }
-
 test();

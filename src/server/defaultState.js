@@ -1,55 +1,45 @@
+
+
 export const defaultState = {
-    users:[{
-        id:"U1",
-        name:"Dev",
-        friends:[`U2`]
-    },{
-        id:"U2",
-        name:"C. Eeyo",
-        friends:[]
-    }],
     groups:[{
-        name:"To Do",
+        name:"Submitted But Not Reviewed",
         id:"G1",
         owner:"U1"
     },{
-        name:"Doing",
+        name:"Application Recieved",
         id:"G2",
         owner:"U1"
     },{
-        name:"Done",
+        name:"Application Accepted",
         id:"G3",
         owner:"U1"
     }],
-    tasks:[{
-        name:"Meet with CTO",
-        id:"T2",
-        group:"G1",
-        owner:"U1",
-        isComplete:true,
+    students:[{
+        "group" : "G1",
+        "owner" : "U1",
+        "message" : "no messages",
+        "id" : "7e04f5d6-5b6f-49ec-959a-611bb1de94d0",
+        "fname" : "saul",
+        "lname" : "goodman",
+        "username" : "sg",
+        "passwordHash" : "5dae429688af1c521ad87ac394192c6d"
     },{
-        name:"Compile ES6",
-        id:"T3",
-        group:"G2",
-        owner:"U2",
-        isComplete:false,
-    },{
-        name:"Update component snapshots",
-        id:"T4",
-        group:"G2",
-        owner:"U1",
-        isComplete:true,
-    },{
-        name:"Production optimizations",
-        id:"T5",
-        group:"G3",
-        owner:"U1",
-        isComplete:false,
+ 
+        "group" : "G1",
+        "owner" : "U1",
+        "message" : "no messages",
+        "id" : "2e8d696f-3338-40b6-b20c-022d4b351a9e",
+        "fname" : "kianna",
+        "lname" : "thompson",
+        "username" : "k",
+        "passwordHash" : "8ce4b16b22b58894aa86c421e8759df3"
     }],
-    comments:[{
-        owner:"U1",
-        id:"C1",
-        task:"T1",
-        content:"Great Work"
-    }]
+    teachers:[
+        {
+            "id" : "U1",
+            "name" : "Jeff Kinne",
+            "passwordHash" : "36eba1e1e343279857ea7f69a597324e",
+            "username" : "DEV"
+        }
+    ]
 }

@@ -2,21 +2,54 @@ import {createStore, applyMiddleware,combineReducers} from 'redux';
 import {defaultState} from '../../server/defaultState';
 import {createLogger} from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-
-
-
 const sagaMiddleware = createSagaMiddleware();
-import * as sagas from './sagas.mock';
+// import * as sagas from './sagas.mock';
+import * as sagas from './sagas';
 import * as mutations from './mutations';
 
 export const store = createStore(
     combineReducers({
-        tasks(tasks=defaultState.tasks,action){
+        userInterface(userInterface = {formState:"login"},action){
             switch(action.type){
+                case mutations.FORM_UPDATE:
+                    return {...userInterface, formState:action.changeTo};
+            }
+            return userInterface;
+        },
+        session(userSession=[] || {},action){
+            let {type,status} = action;
+            userSession = userSession || action.session;
+            switch(type){
+                case mutations.SET_STUDENT_STATE:
+                    return {...userSession,...action.state.session}
+                case mutations.SET_STATE:
+                    return {...userSession,id:action.state.session.id}
+                case mutations.REQUEST_AUTHENTICATE_USER:
+                    return {...userSession, authenticated:mutations.AUTHENTICATING};
+                case mutations.PROCESSING_AUTHENTICATE_USER:
+                    return {...userSession, authenticated:status};
+                case mutations.REGISTRATION_PROCESSING:
+                    return {...userSession,registration_status:status};
+                default:
+                    return userSession;
+            }
+
+        },
+        student(student={},action){
+            switch(action.type){
+                case mutations.SET_STUDENT_STATE:
+                    return {...action.state};
+            }
+            return student;
+        },
+        students(students=[],action){
+            switch(action.type){
+                case mutations.SET_STATE:
+                    return action.state.students;
                 case mutations.CREATE_TASK:
                     return [...tasks,
                         {
-                            name:action.taskID,
+                            name:action.name,
                             id:action.taskID,
                             group:action.groupID,
                             owner:action.ownerID,
@@ -24,21 +57,25 @@ export const store = createStore(
                         }
                     ]
                 case mutations.SET_COMPLETION:
-                    return tasks.map(task=>task.id==action.id?{...task,isComplete:action.isComplete}:task);
-                case mutations.SET_TASK_GROUP:
-                    return tasks.map(task=>task.id==action.id?{...task,group:action.group}:task);
-                case mutations.SET_TASK_NAME:
-                    return tasks.map(task=>task.id==action.id?{...task,name:action.name}:task);
+                    return students.map(task=>task.id==action.id?{...student,isComplete:action.isComplete}:student);
+                case mutations.SET_STUDENT_GROUP:
+                    return students.map(student=>student.id==action.id?{...student,group:action.group}:student);
+                case mutations.SET_STUDENT_MESSAGE:
+                    return students.map(student=>student.id==action.id?{...student,message:action.message}:student);
             }
-            return tasks;
+            return students;
         },
-        comments(comments = defaultState.comments,action){
+        comments(comments = [],action){
                 return comments;
         },
-        groups(groups = defaultState.groups){
-            return groups;
+        groups(groups = [],action){
+            switch(action.type){
+                case mutations.SET_STATE:
+                    return action.state.groups;
+            }
+            return groups
         },
-        users(users = defaultState.users){
+        users(users = []){
             return users;
         }
     })

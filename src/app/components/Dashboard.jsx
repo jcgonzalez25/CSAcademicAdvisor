@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ConnectedTaskList} from './TaskList';
+import {ConnectedStudentList} from './StudentList';
 
 //import {ConnectedTasks} from './TaskList';
 //has the ability to be passed groups
@@ -10,8 +10,10 @@ const Dashboard = ({groups})=>(
         <h2>Dashboard</h2>
         {groups.map(group=>(
             <div key={group.id}>
-            <h1>{group.name}</h1>
-            <ConnectedTaskList id={group.id}/>
+            <div className="d-flex justify-content-center">
+                <h1>{group.name}</h1>
+            </div>
+            <ConnectedStudentList id={group.id}/>
             </div>
         ))}
     </div>

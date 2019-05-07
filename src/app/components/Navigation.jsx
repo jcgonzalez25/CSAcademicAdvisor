@@ -5,7 +5,7 @@ import React from 'react';
 
 const Navigation = ()=>(
     <div>
-        <Link to="/Dashboard">
+        <Link to="/dashboard">
         <h1>Link</h1>
         </Link>
     </div>

@@ -5,18 +5,20 @@ import * as mutations from '../store/mutations';
 const TaskDetail = ({
     id,
     comments,
-    task,
+    student,
     isComplete,
-    groups,setTaskCompletion,setTaskGroup,setTaskName
+    groups,setStudentMessage,setStudentGroup,setStudentCompletion
 })=>(
     <div>
         <Link to="/Dashboard">Back To Dashboard</Link>
         <div>
-            <input value={task.name} onChange={setTaskName}></input>
+            Message For Student:<br></br><textarea value={student.message} onChange={setStudentMessage}></textarea>
         </div>
-        <button onClick={()=>setTaskCompletion(id,!isComplete)}>{isComplete? `Reopen`: `Complete`}</button><br></br>
+        
         <div>
-        <select onChange={setTaskGroup} value={task.group}>
+        Application Status:
+        <br></br>
+        <select onChange={setStudentGroup} value={student.group}>
             {groups.map(group=>(<option value={group.id}>{group.name}</option>))}
         </select>
         </div>
@@ -31,28 +33,29 @@ const TaskDetail = ({
 
 const mapStateToProps = (state,ownProps)=>{
     let id = ownProps.match.params.id;
+    console.log(id)
     let comments = state.comments.filter(comment=>comment.id == id)
-    let task = state.tasks.find(task => task.id== id)
+    let student = state.students.find(student => student.id== id)
     let groups = state.groups;
     return {
         id,
-        task,
+        student,
         groups,
-        isComplete:task.isComplete
+        isComplete:student.isComplete
     }
 }
 const mapDispatchToProps=(dispatch,ownProps)=>{
     const id = ownProps.match.params.id;
     return {
-        setTaskCompletion(id,isComplete){
-            dispatch(mutations.setTaskCompletion(id,isComplete))
+        setStudentCompletion(id,isComplete){
+            dispatch(mutations.setStudentCompletion(id,isComplete));
         },
-        setTaskGroup(e){
-            dispatch(mutations.setTaskGroup(id,e.target.value))
+        setStudentGroup(e){
+            dispatch(mutations.setStudentGroup(id,e.target.value));
         },
-        setTaskName(e){
-            dispatch(mutations.setTaskName(id,e.target.value))
+        setStudentMessage(e){
+            dispatch(mutations.setStudentMessage(id,e.target.value));
         }
     }
 }
-export const ConnectedTaskDetail = connect(mapStateToProps,mapDispatchToProps)(TaskDetail);
+export const ConnectedStudentDetail = connect(mapStateToProps,mapDispatchToProps)(TaskDetail);
