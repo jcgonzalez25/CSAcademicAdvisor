@@ -25,8 +25,8 @@ const LoginForm = ({authorizeLogin,session,updateForm})=>(
                 didnt work please try again</div>
             </div>:null}
         <div className="d-flex justify-content-center">
-        <input type="text" placeholder="username" name="username" defaultValue="DEV"></input>
-        <input type="password" placeholder="password" name="password" defaultValue="fd"></input>
+        <input type="text" placeholder="username" name="username"></input>
+        <input type="password" placeholder="password" name="password"></input>
         </div>
         <div className="d-flex justify-content-center">
             <button type="submit">Login</button>
