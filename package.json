@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build":"webpack -p",
+    "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run server",
     "dev": "webpack-dev-server --open",
@@ -38,6 +38,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "history": "^4.7.2",
     "md5": "^2.2.1",
     "react": "^16.4.2",
