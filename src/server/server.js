@@ -60,12 +60,11 @@ app.post('/student/update',async (req,res)=>{
         await updateStudent(student,res);
         res.status(200).send()
     }catch(e){
-        console.log(e)
+        console.log("Something went wrong")
     }
 
 
 })
-
 
 async function addStudent(fname,lname,username,password){
     let db = await connectDB();
