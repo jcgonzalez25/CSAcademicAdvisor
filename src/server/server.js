@@ -27,12 +27,7 @@ if(process.env.NODE_ENV == "production"){
 }
 
 
-export const addNewTask = async task=>{
-    let db = await connectDB();
-    let collection = db.collection('tasks');
-    await collection.insertOne(task);
 
-}
 export const updateStudent = async (student,res)=>{
     let {id,group,isComplete,message} = student;
     let db = await connectDB();
@@ -48,11 +43,7 @@ export const updateStudent = async (student,res)=>{
     }
 }
 
-app.post('/task/new',async (req,res)=>{
-    let task = req.body.task;
-    await addNewTask(task);
-    res.status(200).send();
-});
+
 
 app.post('/student/update',async (req,res)=>{
     let student = req.body.student;
