@@ -10,7 +10,11 @@ export const AUTHENTICATING = `AUTHENTICATING`;
 export const NOT_AUTHENTICATED = `NOT_AUTHENTICATED`;
 export const SET_STATE = `SET_STATE`;
 export const SET_STUDENT_STATE = `SET_STUDENT_STATE`;
+
+export const UPDATE_INPUT_VALIDATION_STATUS = `UPDATE_INPUT_VALIDATION_STATUS`;
 export const FORM_UPDATE = `FORM_UPDATE`;
+
+
 export const REQUEST_REGISTRATION = `REQUEST_REGISTRATION`;
 export const REGISTRATION_PROCESSING = `REGISTRATION_PROCESSING`;
 export const REGISTRATION_FAILED = `REGISTRATION_FAILED`;
@@ -62,11 +66,19 @@ export const setStudentState = (state={})=>({
     type:SET_STUDENT_STATE,
     state
 })
+
+//UI MUTATIONS
 export const requestFormUpdate = (changeTo)=>({
     type:FORM_UPDATE,
     changeTo
 })
 
+export const updateInputValidationStatus=(inputState)=>({
+    type:UPDATE_INPUT_VALIDATION_STATUS,
+    inputState
+})
+
+//
 export const requestRegistration = (username,password,first_name,last_name)=>({
     type:REQUEST_REGISTRATION,
     username,password,first_name,last_name
