@@ -7,7 +7,7 @@ import {history} from '../store/history';
 import {ConnectedNavigation} from './Navigation';
 import {ConnectedStudentDetail} from './StudentDetail';
 import { Redirect } from 'react-router';
-import {ConnectedLogin} from './Login';
+import {ConnectedLogin} from './Form/Login';
 import {ConnectedStudentPage} from './Student';
 //import {ConnectedStudent} from './Student';
 // Anything inside the Provider Compoenent will have access to this store 

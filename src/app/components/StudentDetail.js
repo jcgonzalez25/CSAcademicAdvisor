@@ -33,7 +33,6 @@ const TaskDetail = ({
 
 const mapStateToProps = (state,ownProps)=>{
     let id = ownProps.match.params.id;
-    console.log(id)
     let comments = state.comments.filter(comment=>comment.id == id)
     let student = state.students.find(student => student.id== id)
     let groups = state.groups;

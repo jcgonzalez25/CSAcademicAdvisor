@@ -59,15 +59,12 @@ export function* authenticateUserSaga(){
             let permissions = data.state.session.permissions;
             yield put(mutations.processingAuthenticateUser(mutations.AUTHENTICATED))
             //add student route here
-            console.log(data)
-            console.log(permissions)
             if(permissions == "student"){
                 history.push("/studentDashboard");
                 yield put(mutations.setStudentState(data.state.student))
             }else if(permissions == "teacher"){
                 yield put(mutations.setState(data.state))
                 history.push("/dashboard")
-
             }
 
         } catch (error) {
