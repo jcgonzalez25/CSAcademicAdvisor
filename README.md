@@ -1,14 +1,14 @@
 # advising_app
 Advising application for the computer science department
 
-System Admin account 
+System Admin account <br>
   able to send messages to students who have registered to the system
   able to set application status to students who have applied to the department
-Student user account 
+Student user account <br>
   when account has been created user may view messages sent by System admin
   may view progress of application 
 
-Implemented using 
+Implemented using
 React Redux - front-end 
 Mongo Node and Express - backend 
 
