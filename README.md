@@ -1,4 +1,4 @@
-# 🎓 AcademiConnect: Navigating CS Academic Paths with Ease 🚀
+# 🎓 CSAcademicAdvisor: Navigating CS Academic Paths with Ease 🚀
 
 [![Build Status](https://img.shields.io/travis/com/yourusername/AcademiConnect/master.svg)](#)
 [![Coverage](https://img.shields.io/codecov/c/github/yourusername/AcademiConnect.svg)](#)
